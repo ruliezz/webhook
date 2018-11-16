@@ -1,0 +1,37 @@
+[
+  {
+    "id": "simple-pull",
+    "execute-command": "/root/pull.sh",
+    "command-working-directory": "/root",
+    "trigger-rule":
+    {
+      "and":
+      [
+        {
+          "match":
+          {
+            "type": "value",
+            "value": "mysecret",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "secret"
+            }
+          }
+        },
+        {
+          "match":
+          {
+            "type": "value",
+            "value": "refs/heads/master",
+            "parameter":
+            {
+              "source": "payload",
+              "name": "ref"
+            }
+          }
+        }
+      ]
+    }
+  }
+]
